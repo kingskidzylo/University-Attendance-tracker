@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Attendance Tracker</title>
+    <link rel="icon" href=https://www.shutterstock.com/shutterstock/photos/1327617251/display_1500/stock-vector-attendance-speech-bubble-on-white-background-vector-illustration-1327617251.jpg type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url(https://i.pinimg.com/474x/cb/15/5a/cb155ae30b2fcd0b2df719c5456e0fb4.jpg) no-repeat center center fixed; background-size: cover;
+            background-size: cover;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .login-container, .tracker-container {
+            max-width: 500px;
+            margin: 100px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .tracker-container {
+            display: none;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background: darkgreen;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="loginContainer">
+
+        <img src=https://www.shutterstock.com/shutterstock/photos/1043815093/display_1500/stock-photo-partners-corporate-relationship-concept-close-up-handshake-of-business-people-in-meeting-1043815093.jpg alt='Login Image' style='width:150px; height:auto; margin-bottom: 10px;'>
+        <h2>University Attendance Tracker - Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+    </div>
+    
+    <div class="tracker-container" id="trackerContainer">
+        <h2>University Attendance Tracker</h2>
+        <label for="course">Select Course:</label>
+        <select id="course">
+            <option value="WB101">Web Page 204</option>
+            <option value="MATH201">Mathematics 201</option>
+            <option value="SlS102">Solid state 202</option>
+        </select>
+        
+        <label for="date">Select Date:</label>
+        <input type="date" id="date">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Student ID</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceTable">
+                <tr>
+                    <td>Emmanuel Larbi</td>
+                    <td>Ueb1103923</td>
+                    <td class="status">Absent</td>
+                    <td><button onclick="markPresent(this)">Mark Present</button></td>
+                </tr>
+                <tr>
+                    <td>Kofi Mensah</td>
+                    <td>Ueb110323</td>
+                    <td class="status">Absent</td>
+                    <td><button onclick="markPresent(this)">Mark Present</button></td>
+                </tr>
+                <tr>
+                    <td>Collins Ntiamoah</td>
+                    <td>Ueb112340</td>
+                    <td class="status">Absent</td>
+                    <td><button onclick="markPresent(this)">Mark Present</button></td>
+                </tr>
+                <tr>
+                    <td>Erskine Ekow</td>
+                    <td>Ueb110544</td>
+                    <td class="status">Absent</td>
+                    <td><button onclick="markPresent(this)">Mark Present</button></td>
+                </tr>
+                <tr>
+                    <td>Kwaku ahen</td>
+                    <td>Ueb112890</td>
+                    <td class="status">Absent</td>
+                    <td><button onclick="markPresent(this)">Mark Present</button></td>
+                </tr>
+                <tr>
+                    <td>Emmanuel Owusu</td>
+                    <td>Ueb444890</td>
+                    <td class="status">Absent</td>
+                    <td><button onclick="markPresent(this)">Mark Present</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === "admin" && password === "password") {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('trackerContainer').style.display = 'block';
+            } else {
+                alert("Invalid login. Please try again.");
+            }
+        }
+
+        function markPresent(button) {
+            let row = button.parentElement.parentElement;
+            let statusCell = row.querySelector('.status');
+            statusCell.textContent = 'Present';
+            statusCell.style.color = 'green';
+            button.disabled = true;
+            button.style.background = 'gray';
+        }
+    </script>
+</body>
+</html>
