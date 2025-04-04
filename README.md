@@ -1,2 +1,19 @@
 # University-Attendance-tracker
-The Student Attendance Tracker is a web-based application designed to simplify and digitize the process of recording and monitoring student attendance in universities. The system allows both students and faculty to interact through a streamlined dashboard that promotes efficiency, transparency, and ease of access.
+A web-based system to simplify student attendance tracking in universities.
+
+## 🚀 Features
+✅ Secure Login System  
+✅ Interactive Dashboard  
+✅ Mark Attendance Easily  
+✅ Attendance Reports & Analytics  
+✅ Mobile-Friendly Design  
+
+## 🛠️ Tech Stack
+- HTML, CSS, JavaScript
+- Figma (UI Design)
+- GitHub (Version Control)
+
+## 🔗 Live Demo
+[Check it out here](https://yourusername.github.io/student-attendance-tracker/)  
+
+---
