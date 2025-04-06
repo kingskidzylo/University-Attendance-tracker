@@ -1,155 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Attendance Tracker</title>
-    <link rel="icon" href=https://www.shutterstock.com/shutterstock/photos/1327617251/display_1500/stock-vector-attendance-speech-bubble-on-white-background-vector-illustration-1327617251.jpg type="image/png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url(https://i.pinimg.com/474x/cb/15/5a/cb155ae30b2fcd0b2df719c5456e0fb4.jpg) no-repeat center center fixed; background-size: cover;
-            background-size: cover;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .login-container, .tracker-container {
-            max-width: 500px;
-            margin: 100px auto;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .tracker-container {
-            display: none;
-        }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            padding: 10px;
-            background: green;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-        }
-        button:hover {
-            background: darkgreen;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: white;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>University Attendance Tracker</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="login-container" id="loginContainer">
 
-        <img src=https://www.shutterstock.com/shutterstock/photos/1043815093/display_1500/stock-photo-partners-corporate-relationship-concept-close-up-handshake-of-business-people-in-meeting-1043815093.jpg alt='Login Image' style='width:150px; height:auto; margin-bottom: 10px;'>
-        <h2>University Attendance Tracker - Login</h2>
-        <input type="text" id="username" placeholder="Enter Username">
-        <input type="password" id="password" placeholder="Enter Password">
-        <button onclick="login()">Login</button>
-    </div>
-    
-    <div class="tracker-container" id="trackerContainer">
-        <h2>University Attendance Tracker</h2>
-        <label for="course">Select Course:</label>
-        <select id="course">
-            <option value="WB101">Web Page 204</option>
-            <option value="MATH201">Mathematics 201</option>
-            <option value="SlS102">Solid state 202</option>
-        </select>
-        
-        <label for="date">Select Date:</label>
-        <input type="date" id="date">
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Student Name</th>
-                    <th>Student ID</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="attendanceTable">
-                <tr>
-                    <td>Emmanuel Larbi</td>
-                    <td>Ueb1103923</td>
-                    <td class="status">Absent</td>
-                    <td><button onclick="markPresent(this)">Mark Present</button></td>
-                </tr>
-                <tr>
-                    <td>Kofi Mensah</td>
-                    <td>Ueb110323</td>
-                    <td class="status">Absent</td>
-                    <td><button onclick="markPresent(this)">Mark Present</button></td>
-                </tr>
-                <tr>
-                    <td>Collins Ntiamoah</td>
-                    <td>Ueb112340</td>
-                    <td class="status">Absent</td>
-                    <td><button onclick="markPresent(this)">Mark Present</button></td>
-                </tr>
-                <tr>
-                    <td>Erskine Ekow</td>
-                    <td>Ueb110544</td>
-                    <td class="status">Absent</td>
-                    <td><button onclick="markPresent(this)">Mark Present</button></td>
-                </tr>
-                <tr>
-                    <td>Kwaku ahen</td>
-                    <td>Ueb112890</td>
-                    <td class="status">Absent</td>
-                    <td><button onclick="markPresent(this)">Mark Present</button></td>
-                </tr>
-                <tr>
-                    <td>Emmanuel Owusu</td>
-                    <td>Ueb444890</td>
-                    <td class="status">Absent</td>
-                    <td><button onclick="markPresent(this)">Mark Present</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <!-- Navigation -->
+  <nav>
+    <button onclick="showPage('homePage')">Home</button>
+    <button onclick="showPage('featuresPage')">Features</button>
+    <button onclick="showPage('loginContainer')">Login</button>
+    <button onclick="showPage('registerPage')">Register Student</button>
+  </nav>
 
-    <script>
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            if (username === "admin" && password === "password") {
-                document.getElementById('loginContainer').style.display = 'none';
-                document.getElementById('trackerContainer').style.display = 'block';
-            } else {
-                alert("Invalid login. Please try again.");
-            }
-        }
+  <!-- Home Page -->
+  <div class="container" id="homePage">
+    <h1>Welcome to University Attendance Tracker</h1>
+    <p>This platform helps track and manage student attendance efficiently and securely.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991101.png" style="width: 120px;" />
+    <p>Use the navigation above to explore features or login.</p>
+  </div>
 
-        function markPresent(button) {
-            let row = button.parentElement.parentElement;
-            let statusCell = row.querySelector('.status');
-            statusCell.textContent = 'Present';
-            statusCell.style.color = 'green';
-            button.disabled = true;
-            button.style.background = 'gray';
-        }
-    </script>
+  <!-- Features Page -->
+  <div class="container hidden" id="featuresPage">
+    <h2>Key Features</h2>
+    <ul>
+      <li>
+        <strong>🔒 Secure login system for authorized access</strong>
+        <p>This feature ensures that only authorized users (admins or teachers) can access the attendance tracking system. This keeps student data safe and prevents unauthorized modifications.</p>
+      </li>
+      <li>
+        <strong>📅 Course and date selection for attendance records</strong>
+        <p>Users can select the course and the date for which they are marking attendance, providing a clear and organized method for managing attendance records across different classes and dates.</p>
+      </li>
+      <li>
+        <strong>✅ Mark students as present with a single click</strong>
+        <p>Attendance can be easily marked by clicking a button for each student. Once marked, the student’s status changes instantly to "Present" and the button is disabled to prevent accidental changes.</p>
+      </li>
+      <li>
+        <strong>📊 Visual feedback for attendance status</strong>
+        <p>The status of each student is visually represented by a color change (green for present, red for absent). This makes it easy for teachers to view and manage attendance at a glance.</p>
+      </li>
+      <li>
+        <strong>🖥️ Responsive design for all screen sizes</strong>
+        <p>The platform is designed to work seamlessly on all screen sizes, ensuring a smooth user experience whether you're using a desktop, tablet, or mobile device.</p>
+      </li>
+      <li>
+        <strong>📁 Easily extendable to export or store attendance data</strong>
+        <p>Future versions can integrate features to export attendance data to files like CSV or Excel, allowing for easy storage, reporting, and analysis of student attendance trends.</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Register Student Page -->
+  <div class="container hidden" id="registerPage">
+    <h2>Register New Student</h2>
+    <input type="text" id="newStudentName" placeholder="Enter Full Name" />
+    <input type="text" id="newStudentID" placeholder="Enter Student ID" />
+    <button onclick="registerStudent()">Register</button>
+  </div>
+
+  <!-- Login Page -->
+  <div class="container hidden" id="loginContainer">
+    <img src="https://www.shutterstock.com/shutterstock/photos/1043815093/display_1500/stock-photo-partners-corporate-relationship-concept-close-up-handshake-of-business-people-in-meeting-1043815093.jpg" alt='Login Image' style='width:150px; height:auto; margin-bottom: 10px;'>
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Tracker Page -->
+  <div class="container hidden" id="trackerContainer">
+    <h2>University Attendance Tracker</h2>
+    <label for="course">Select Course:</label>
+    <select id="course">
+      <option value="WB101">Web Page 204</option>
+      <option value="MATH201">Mathematics 201</option>
+      <option value="SlS102">Solid state 202</option>
+    </select>
+
+    <label for="date">Select Date:</label>
+    <input type="date" id="date">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Student ID</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="attendanceTable">
+        <!-- Dynamically added student rows will appear here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      const pages = ['homePage', 'featuresPage', 'loginContainer', 'trackerContainer', 'registerPage'];
+      pages.forEach(id => {
+        document.getElementById(id).style.display = (id === pageId) ? 'block' : 'none';
+      });
+    }
+
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === "admin" && password === "password") {
+        showPage('trackerContainer');
+      } else {
+        alert("Invalid login. Please try again.");
+      }
+    }
+
+    function markPresent(button) {
+      const row = button.parentElement.parentElement;
+      const statusCell = row.querySelector('.status');
+      statusCell.textContent = 'Present';
+      statusCell.style.color = 'green';
+      button.disabled = true;
+    }
+
+    function registerStudent() {
+      const name = document.getElementById('newStudentName').value.trim();
+      const id = document.getElementById('newStudentID').value.trim();
+
+      if (name === "" || id === "") {
+        alert("Please enter both name and student ID.");
+        return;
+      }
+
+      const table = document.getElementById('attendanceTable');
+      const newRow = table.insertRow();
+
+      newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${id}</td>
+        <td class="status">Absent</td>
+        <td><button onclick="markPresent(this)">Mark Present</button></td>
+      `;
+
+      alert(`${name} has been registered.`);
+      document.getElementById('newStudentName').value = '';
+      document.getElementById('newStudentID').value = '';
+    }
+  </script>
+
 </body>
 </html>
+
